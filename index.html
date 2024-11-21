@@ -3,11 +3,91 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trading Checklist</title>
+  <title>Trading Discipline App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div id="root"></div>
-  <script src="app.js"></script>
+  <div id="app">
+    <!-- Welcome Screen -->
+    <section id="welcome-screen" class="active">
+      <div class="container">
+        <h1>Welcome to Your Trading Journal</h1>
+        <p>Stay disciplined and improve your trading performance.</p>
+        <button class="btn" id="start-checklist-btn">Start Checklist</button>
+      </div>
+    </section>
+
+    <!-- Checklist Section -->
+    <section id="checklist-section">
+      <div class="container">
+        <h2>Pre-Trade Checklist</h2>
+        <p id="checklist-question">Loading...</p>
+        <div class="buttons"></div>
+      </div>
+    </section>
+
+    <!-- Encouragement Section -->
+    <section id="encouragement-section">
+      <div class="container">
+        <h2>Trading Not Recommended</h2>
+        <p>Your current state or market conditions are unsuitable for trading. Consider:</p>
+        <ul>
+          <li>Reviewing your trading plan</li>
+          <li>Taking a break and refocusing</li>
+          <li>Returning when conditions improve</li>
+          <li>No trade is a good trade</li>
+        </ul>
+        <button class="btn" id="return-btn">Return to Start</button>
+      </div>
+    </section>
+
+    <!-- Trade Logger -->
+    <section id="logger-section">
+      <div class="container">
+        <h2>Trade Logger</h2>
+        <form id="trade-form">
+          <div class="form-group">
+            <label for="symbol">Symbol</label>
+            <input type="text" id="symbol" placeholder="e.g., AAPL">
+          </div>
+          <div class="form-group">
+            <label for="size">Size</label>
+            <input type="number" id="size" placeholder="e.g., 100">
+          </div>
+          <div class="form-group">
+            <label for="direction">Direction</label>
+            <select id="direction">
+              <option value="Buy">Buy</option>
+              <option value="Sell">Sell</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="entry-price">Entry Price</label>
+            <input type="number" id="entry-price" placeholder="e.g., 150.50">
+          </div>
+          <div class="form-group">
+            <label for="exit-price">Exit Price</label>
+            <input type="number" id="exit-price" placeholder="e.g., 155.00">
+          </div>
+          <div class="form-group">
+            <label for="strategy">Strategy Type</label>
+            <input type="text" id="strategy" placeholder="e.g., Scalping, Swing">
+          </div>
+          <div class="form-group">
+            <label for="notes">Notes</label>
+            <textarea id="notes" placeholder="Add any notes here..."></textarea>
+          </div>
+          <div class="form-group">
+            <label for="image-upload">Upload Screenshot/Chart</label>
+            <input type="file" id="image-upload" accept="image/*">
+          </div>
+          <button class="btn" type="submit">Save Trade</button>
+        </form>
+        <div id="log-output" class="log-grid"></div>
+      </div>
+    </section>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
